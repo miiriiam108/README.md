@@ -2,7 +2,7 @@
 
 ## PARTE A 
 
-1. **Vagrant y el Vagrantfile.** Explica brevemente qué problema resuelve Vagrant y distingue el anfitrión, el proveedor de virtualización, la box y la máquina virtual. Averigua en qué lenguaje está escrito el `Vagrantfile`. Analiza el archivo inicial y, al terminar la práctica, comenta cada línea activa del archivo final: qué configura, por qué la añadiste y cómo compruebas que ha surtido efecto. (Sin terminar, terminar al finalizar la práctica)
+1. **Vagrant y el Vagrantfile.** Explica brevemente qué problema resuelve Vagrant y distingue el anfitrión, el proveedor de virtualización, la box y la máquina virtual. Averigua en qué lenguaje está escrito el `Vagrantfile`. Analiza el archivo inicial y, al terminar la práctica, comenta cada línea activa del archivo final: qué configura, por qué la añadiste y cómo compruebas que ha surtido efecto.
 
 
 Vagrant soluciona problemas de compatibilidad de software con algunos sistemas operativos.
@@ -14,7 +14,7 @@ Máquina virtual:El sistema operativo que se ejecuta dentro del proveedor, cread
 
 El lenguaje de programación de Vagrantfile es Ruby 
 
-Archivo inicial: En lo primero que puedo observar es que está escrito en el lenguaje Ruby. Otra cosa que resalta es que hay muchas líneas de código pero todas, excepto 3 están comentadas
+Archivo inicial: En lo primero que puedo observar es que está escrito en el lenguaje Ruby. Otra cosa que resalta es que hay muchas líneas de código pero todas, excepto 3 están comentadas.
 
 2.  **Aprovisionamiento**. Investiga qué es un provisioner, dónde se ejecuta el script, cuándo lo lanza Vagrant y qué diferencia hay entre `inline:` y `path:`. Explica qué ocurre si modificas el script después del primer `vagrant up` y cómo lo ejecutarías de nuevo. 
 
@@ -84,36 +84,47 @@ Entramos por ssh, comprobar el nombre de la máquina, la versión debian y las r
 
 - Asigna un hostname identificable con tu nombre
   ![Captura 7](img/Captura%20de%20pantalla%202026-10-06%20183755.png)
-
-
+    - Config.vm.hostname: Pone el nombre de la máquina virtual
 - Conserva la NAT que Vagrant configura por defecto como primera interfaz. Identifica qué dirección y ruta recibe dentro de Debian.
   ![Captura 8](img/Captura%20de%20pantalla%202026-10-06%20183830.png)
 
 - Añade una segunda interfaz con IP fija en una red de laboratorio. En VirtualBox configúrala como red interna
   ![Captura 9](img/Captura%20de%20pantalla%202026-10-06%20183937.png)
-
-
+    - Private_network: Crea la 2º interfaz de red con IP fija
+      
 - La red interna de VIrtualBox aísla por completo a las máquina virtuales del host y el host-only permite una comunicación directa entre el host y la máquina virtual.
-
 
 - Reenvía el puerto 80 de la máquina virtual al 8080 del anfitrión, únicamente por `127.0.0.1`. 
    ![Captura 10](img/Captura%20de%20pantalla%202026-10-06%20184026.png)
+    - forwarded_port: Con esto podemos acceder al servidor apache desde el host
 
 
-  - Vincular un script Bash de aprovisionamiento guardado en el repositorio.
+- Vincular un script Bash de aprovisionamiento guardado en el repositorio.
     ![Captura 11](img/Captura%20de%20pantalla%202026-10-06%20184114.png)
+    - provision.sh: Ejecuta el script que instala y configura Apache automáticamente
 
 ## PARTE D-Aprovisiona Apache
 
 - Crea un script Bash que instale Apache en Debian 12 
   ![Captura 12](img/Captura%20de%20pantalla%202026-10-06%20190612.png)
+  - apt update: Actualiza la lista de paquetes disponibles
+  - apt install apache2: Instala el servidor web Apache
+  - systemctl enable: Hace que Apache arranque automáticamente al iniciar la VM
+  - systemctl start: Inicia el servidor Apache
+  - echo: Genera una página HTML con el nombre y el hostname de la máquina
+  - mv: copia la página del directorio web.
 
 
-  - Ejecución del aprovisionamiento
+- Ejecución del aprovisionamiento
     ![Captura 13](img/Captura%20de%20pantalla%202026-10-06%20190938.png)
 
 
-  - active el servicio y escriba una página de inicio sencilla. Esa página debe mostrar tu nombre y el hostname de la máquina. 
+- active el servicio y escriba una página de inicio sencilla. Esa página debe mostrar tu nombre y el hostname de la máquina. 
       ![Captura 14](img/Captura%20de%20pantalla%202026-10-06%20191840.png)
       ![Captura 15](img/Captura%20de%20pantalla%202026-10-06%20191852.png)
+
+## ERRORES
+1. Un error que me salía es que no me cargaba la página web y era porque no tenía Apache iniciado, por lo que para solucionarlo he ejecutado `sudo systemctl start apache2`
+
+## BIBLIOGRAFÍA
 
