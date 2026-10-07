@@ -127,4 +127,22 @@ Entramos por ssh, comprobar el nombre de la máquina, la versión debian y las r
 1. Un error que me salía es que no me cargaba la página web y era porque no tenía Apache iniciado, por lo que para solucionarlo he ejecutado `sudo systemctl start apache2`
 
 ## BIBLIOGRAFÍA
+- [¿Qué problema resuelve Vagrant?](https://www.redeszone.net/tutoriales/servidores/vagrant-instalacion-configuracion-ejemplos/)
+- Elementos principales: Buscado en copilot
+- [Lenguaje de Vagrantfile](https://codigoelectronica.com/blog/vagrantfile)
+- [¿Qué es un provisioner?](https://www.ibm.com/es-es/think/topics/provisioning)
+- [¿Dónde se ejecuta el script?](https://vagrant-intro.readthedocs.io/es/latest/aprovisionamiento.html)
+- [¿Cuándo lo lanza Vagrant?](https://vagrant-intro.readthedocs.io/es/latest/aprovisionamiento.html)
+- Diferencia entre [inline](https://www.lenovo.com/es/refurbished/es/glossary/inline/) y [path](https://micro.recursospython.com/recursos/que-es-y-para-que-sirve-la-variable-de-entorno-path.html)
+- Modificación de vagrant y ejecución: Búsqueda de google
+- [Red de vagrant](https://developer.hashicorp.com/vagrant/docs/networking)
+- [Segunda interfaz con ip fija](https://codigoelectronica.com/blog/configurar-redes-en-vagrant)
+- [NAT](https://www.xataka.com/basics/que-nat-ventajas-desventajas-tipos-cual-se-usa-cada-caso)
+- [Red interna](https://herschelgonzalez.com/que-es-una-red-interna-en-informatica/)
+- [Red privada](https://ccnadesdecero.es/que-son-las-redes-privadas/#que-son-las-redes-privadas)
+- [Host-only](https://donweb.news/networking-virtualbox-nat-bridged-host-only-labs-devops/)
+- [Red pública](https://247tecno.com/redes-publicas-y-privadas/)
+- [Reenvío de puertos](https://www.splashtop.com/es/blog/port-forwarding)
+- Diferencia de red interna de virtual box y red privada de host-only: búsqueda de google
 
+ 
