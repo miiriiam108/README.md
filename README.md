@@ -65,8 +65,55 @@ El reenvío de puertos no crea una interfaz nueva porque solo redirige el tráfi
 
 /Vagrant es la carpeta compartida que Vagrant monta dentro de la máquina virtual.
 
+## PARTE B-Mi primera máquina en Vagrant
 
-## ¿Qué es Vagrant y porque resulta útil?
-Vagrant es una herramienta de código abierto para la creación y gestión de entornos virtualizados de desarrollo. Permite definir, configurar y provisionar máquinas virtuales de manera sencilla y automatizada, utilizando un archivo de configuración llamado *vagrant file*.
-Es útil usarlo porque puedes definir tu entorno de desarrollo una sola vez y compartirlo con tu equipo, cada proyecto puede tener su propia máquina virtual sin afectar tu sistema principal, soporta diferentes proveedores de virtualización como VirtualBox, VMware..., garantiza que todos los miembros del equipo usen el mismo entorno, sin problemas de configuración y puedes instalar dependencias automáticamente usando shell, scripts....
+El archivo es válido
+![Captura 1](img/Captura%20de%20pantalla%202026-10-06%20100324.png)
+
+Arrancamos la máquina
+![Captura 2](img/Captura%20de%20pantalla%202026-10-06%20101350.png)
+![Captura 3](img/Captura%20de%20pantalla%202026-10-06%20101407.png)
+![Captura 4](img/Captura%20de%20pantalla%202026-10-06%20101432.png)
+
+Entramos por ssh, comprobar el nombre de la máquina, la versión debian y las rutas
+![Captura 5](img/Captura%20de%20pantalla%202026-10-06%20101632.png)
+![Captura 6](img/Captura%20de%20pantalla%202026-10-06%20101709.png)
+
+
+## PARTE C-Completa el Vagrantfile
+
+- Asigna un hostname identificable con tu nombre
+  ![Captura 7](img/Captura%20de%20pantalla%202026-10-06%20183755.png)
+
+
+- Conserva la NAT que Vagrant configura por defecto como primera interfaz. Identifica qué dirección y ruta recibe dentro de Debian.
+  ![Captura 8](img/Captura%20de%20pantalla%202026-10-06%20183830.png)
+
+- Añade una segunda interfaz con IP fija en una red de laboratorio. En VirtualBox configúrala como red interna
+  ![Captura 9](img/Captura%20de%20pantalla%202026-10-06%20183937.png)
+
+
+- La red interna de VIrtualBox aísla por completo a las máquina virtuales del host y el host-only permite una comunicación directa entre el host y la máquina virtual.
+
+
+- Reenvía el puerto 80 de la máquina virtual al 8080 del anfitrión, únicamente por `127.0.0.1`. 
+   ![Captura 10](img/Captura%20de%20pantalla%202026-10-06%20184026.png)
+
+
+  - Vincular un script Bash de aprovisionamiento guardado en el repositorio.
+    ![Captura 11](img/Captura%20de%20pantalla%202026-10-06%20184114.png)
+
+## PARTE D-Aprovisiona Apache
+
+- Crea un script Bash que instale Apache en Debian 12 
+  ![Captura 12](img/Captura%20de%20pantalla%202026-10-06%20190612.png)
+
+
+  - Ejecución del aprovisionamiento
+    ![Captura 13](img/Captura%20de%20pantalla%202026-10-06%20190938.png)
+
+
+  - active el servicio y escriba una página de inicio sencilla. Esa página debe mostrar tu nombre y el hostname de la máquina. 
+      ![Captura 14](img/Captura%20de%20pantalla%202026-10-06%20191840.png)
+      ![Captura 15](img/Captura%20de%20pantalla%202026-10-06%20191852.png)
 
