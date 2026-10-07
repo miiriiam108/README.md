@@ -66,5 +66,7 @@ El reenvío de puertos no crea una interfaz nueva porque solo redirige el tráfi
 /Vagrant es la carpeta compartida que Vagrant monta dentro de la máquina virtual.
 
 
-## PARTE B
+## ¿Qué es Vagrant y porque resulta útil?
+Vagrant es una herramienta de código abierto para la creación y gestión de entornos virtualizados de desarrollo. Permite definir, configurar y provisionar máquinas virtuales de manera sencilla y automatizada, utilizando un archivo de configuración llamado *vagrant file*.
+Es útil usarlo porque puedes definir tu entorno de desarrollo una sola vez y compartirlo con tu equipo, cada proyecto puede tener su propia máquina virtual sin afectar tu sistema principal, soporta diferentes proveedores de virtualización como VirtualBox, VMware..., garantiza que todos los miembros del equipo usen el mismo entorno, sin problemas de configuración y puedes instalar dependencias automáticamente usando shell, scripts....
 
